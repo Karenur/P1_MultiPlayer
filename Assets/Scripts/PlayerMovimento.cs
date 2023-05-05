@@ -26,14 +26,6 @@ public class PlayerMovimento : NetworkBehaviour
             return;
 
 
-        if (IsServer)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                NetworkManager.Singleton.Shutdown();
-            }
-        }
-
         //Move
         if (Input.GetKey(KeyCode.LeftArrow))
         {

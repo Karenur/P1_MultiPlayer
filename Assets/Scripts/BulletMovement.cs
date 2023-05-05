@@ -9,24 +9,21 @@ public class BulletMovement : MonoBehaviour
 
     void Update()
     {
-        //Move
         transform.position += transform.up * mySpeed * Time.deltaTime;
     }
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Incluir RigidBody no prefab Bullet
         if (collision.collider.CompareTag("Player") && collision.collider.GetComponent<PlayerMovimento>().myNumber != playerNum)
         {
             collision.gameObject.SetActive(false);
-            Debug.Log("colidi no player");
+            Destroy(gameObject);
         }
 
         if (collision.collider.CompareTag("parede"))
         {
             Destroy(gameObject);
-            Debug.Log("colidi na parede");
         }
-
-
     }
+
 }
